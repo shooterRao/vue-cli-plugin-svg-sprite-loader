@@ -12,6 +12,13 @@
     "vue-cli-plugin",
     "svg-sprite-loader"
   ],
-  "author": "ShooterRao <rjw0319@163.com>",
+  "author": "shooterRao <rjw0319@163.com>",
+  "bugs": {
+    "url": "https://github.com/shooterRao/vue-cli-plugin-svg-sprite-loader/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shooterRao/vue-cli-plugin-svg-sprite-loader.git"
+  },
   "license": "MIT"
 }

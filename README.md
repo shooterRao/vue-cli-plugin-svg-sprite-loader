@@ -11,7 +11,7 @@ vue add svg-sprite-loader
 ## 使用
 
 ```html
-<SvgIcon name="xxx" size="大小" />
+<SvgIcon name="vue" />
 ```
 
 ## 组件参数
