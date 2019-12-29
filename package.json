@@ -20,5 +20,6 @@
     "type": "git",
     "url": "git+https://github.com/shooterRao/vue-cli-plugin-svg-sprite-loader.git"
   },
+  "homepage": "https://github.com/shooterRao/vue-cli-plugin-svg-sprite-loader",
   "license": "MIT"
 }
