@@ -1,21 +1,32 @@
 module.exports = (api, projectOptions) => {
+
+  // 支持外部自定义配置 svg-sprite-loader
+  const svgSpriteLoaderOpts = projectOptions.pluginOptions
+    ? projectOptions.pluginOptions.svgSpriteLoader || {}
+    : {};
+
+  const svgDir = svgSpriteLoaderOpts.dir || api.resolve('src/svg');
+  const svgTest = svgSpriteLoaderOpts.test || /\.svg$/;
+
+  const svgLoaderOpts = svgSpriteLoaderOpts.options || {
+    symbolId: 'icon-[name]'
+  };
+
   api.chainWebpack(webpackConfig => {
     // use svg
     webpackConfig.module
       .rule('svg')
-      .exclude.add(api.resolve('src/svg'))
+      .exclude.add(svgDir)
       .end();
     // icon
     webpackConfig.module
       .rule('icon')
-      .test(/\.svg$/)
-      .include.add(api.resolve('src/svg'))
+      .test(svgTest)
+      .include.add(svgDir)
       .end()
       .use('svg-sprite-loader')
       .loader('svg-sprite-loader')
-      .options({
-        symbolId: 'icon-[name]'
-      })
+      .options(svgLoaderOpts)
       .end();
   });
 };

@@ -22,3 +22,23 @@ vue add svg-sprite-loader
 |size|大小|Number|
 |color|颜色(单色图标才有效且path不能有fill属性)|String|
 |className|类名|String|
+
+## svg-sprite-loader 插件参数自定义
+
+在**vue.config.js**：
+
+```javascript
+module.exports = {
+  pluginOptions: {
+    svgSpriteLoader: {
+      // directory
+      dir: path.resolve(__dirname, 'src/icon'),
+      // test rule
+      test: /\.svg$/,
+      // https://github.com/JetBrains/svg-sprite-loader#configuration
+      // default: { symbolId: 'icon-[name]' }
+      options: {}
+    }
+  }
+}
+```
