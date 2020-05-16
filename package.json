@@ -1,11 +1,8 @@
 {
   "name": "vue-cli-plugin-svg-sprite-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "vue cli3 plugin for svg-sprite-loader",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "vue",
     "vue-cli",
