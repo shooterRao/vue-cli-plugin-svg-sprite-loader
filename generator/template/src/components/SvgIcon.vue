@@ -1,6 +1,6 @@
 <template>
-  <i :class="['svg-icon', `svg-icon-${name}`, className]" :style="svgStyle">
-    <svg fill="currentColor" aria-hidden="true" width="1em" height="1em">
+  <i :class="['svg-icon', `svg-icon-${name}`]" :style="svgStyle">
+    <svg fill="currentColor" aria-hidden="true" :width="width" :height="height">
       <use :xlink:href="iconName" />
     </svg>
   </i>
@@ -14,31 +14,40 @@ export default {
       type: String,
       required: true
     },
-    className: {
-      type: String
-    },
     color: {
       type: String
     },
     size: {
-      type: Number
+      type: [Number, String]
+    },
+    width: {
+      type: String,
+      default: "1em"
+    },
+    height: {
+      type: String,
+      default: "1em"
     }
   },
   computed: {
     iconName() {
       return `#icon-${this.name}`;
     },
-    svgClass() {
-      if (this.className) {
-        return `${this.className}`;
-      }
-      return "";
-    },
     svgStyle() {
       const { color, size } = this;
       const style = {};
       color && (style.color = color);
-      size && (style.fontSize = `${size}px`);
+
+      if (size) {
+        if (typeof size === "string") {
+          size.includes("rem")
+            ? (style.fontSize = size)
+            : (style.fontSize = `${size}px`);
+        } else {
+          style.fontSize = `${size}px`;
+        }
+      }
+
       return style;
     }
   }

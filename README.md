@@ -19,9 +19,10 @@ vue add svg-sprite-loader
 |参数|描述|类型|
 |:---|---|---|
 |name|svg图标文件名(必填)|String|
-|size|大小|Number|
+|size|大小(支持rem，比如直接写12rem)|Number or String|
 |color|颜色(单色图标才有效且path不能有fill属性)|String|
-|className|类名|String|
+|width|svg宽度|String|
+|height|svg高度|String|
 
 ## svg-sprite-loader 插件参数自定义
 
@@ -48,3 +49,9 @@ module.exports = {
 ### 1.0.2
 
 - 新增svg图标预览页面
+
+### 1.0.3
+
+- 移除className属性，使用vue自带class合并写法
+- 新增width、height属性，支持自定义宽高
+- size支持rem
