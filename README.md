@@ -2,6 +2,8 @@
 
 vuecli3 [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) 插件，让你轻松使用svg图标
 
+[example](https://github.com/shooterRao/vue-cli-plugin-svg-sprite-loader-example)
+
 ## 安装
 
 ```
@@ -37,8 +39,9 @@ module.exports = {
       // test rule
       test: /\.svg$/,
       // https://github.com/JetBrains/svg-sprite-loader#configuration
-      // default: { symbolId: 'icon-[name]' }
-      options: {}
+      options: {
+        symbolId: 'icon-[name]'
+      }
     }
   }
 }
