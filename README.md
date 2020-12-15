@@ -58,3 +58,7 @@ module.exports = {
 - 移除className属性，使用vue自带class合并写法
 - 新增width、height属性，支持自定义宽高
 - size支持rem
+
+### 2.0.0
+
+- 升级 svg-sprite-loader 为**5.1.x**版本
