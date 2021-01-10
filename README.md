@@ -62,3 +62,7 @@ module.exports = {
 ### 2.0.0
 
 - 升级 svg-sprite-loader 为**5.1.x**版本
+
+### 2.0.1
+
+- 自动检测开发环境是js还是ts，注入不同的模板
