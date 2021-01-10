@@ -1,21 +1,22 @@
 module.exports = (api, options, rootOptions) => {
-
   api.extendPackage({
     devDependencies: {
       'svg-sprite-loader': '^5.1.1',
     },
   });
 
-  api.render('./template');
+  const isJs = /\.js$/.test(api.entryFile);
 
-  try {
-    api.injectImports(api.entryFile, [
-      `import '@/svg';`,
-      `import SvgIcon from '@/components/SvgIcon';`,
-    ]);
-  } catch (e) {
-    api.exitLog('Can not find main.js!');
+  if (isJs) {
+    api.render('./template/js');
+  } else {
+    api.render('./template/ts');
   }
+
+  api.injectImports(api.entryFile, [
+    `import '@/svg';`,
+    `import SvgIcon from '@/components/SvgIcon.vue';`,
+  ]);
 };
 
 module.exports.hooks = (api) => {
@@ -28,7 +29,7 @@ module.exports.hooks = (api) => {
     const lines = contentMain.split(/\r?\n/g);
 
     const renderIndex = lines.findIndex((line) =>
-      line.match(/import\sSvgIcon\sfrom\s\'@\/components\/SvgIcon\'/)
+      line.match(/import\sSvgIcon\sfrom\s\'@\/components\/SvgIcon\.vue\'/)
     );
     lines[renderIndex] += `\nVue.component('SvgIcon', SvgIcon);`;
 
